@@ -6,8 +6,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<p>
-					Copyright &copy; Company 2013 - Template by <a
-						href="http://maxoffsky.com/">Maks</a>
+					All Copyright reserved &copy;2019  - Template by Jmal Ahmed
 				</p>
 			</div>
 		</div>
