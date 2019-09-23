@@ -1,6 +1,6 @@
 <div class="container">
 
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<div class="row">
 		<div class="col-md-3">
 			<%@ include file="./shared/sidebar.jsp"%>
@@ -17,7 +17,7 @@
 					</c:if>
 
 					<c:if test="${userClickCategoryProducts == true}">
-						<ol class="bredcrumb">
+						<ol class="breadcrumb">
 							<li><a href="${contextRoot}/home">Home</a></li>
 							<li class="active">Category</li>
 							<li class="active">${category.name}</li>

@@ -13,7 +13,7 @@
     ">
 
 	<context:component-scan	base-package="com.SCI.Moltres.controller" />
-	<context:component-scan	base-package="com.SCI.MoltresBackend.daoimpl" />
+	<context:component-scan	base-package="com.SCI.MoltresBackend" />
 	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
