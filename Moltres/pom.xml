@@ -9,6 +9,18 @@
 	<name>Moltres Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+
 	<properties>
 		<javaee.version>7.0</javaee.version>
 		<spring.version>4.3.6.RELEASE</spring.version>
@@ -21,7 +33,7 @@
 			<artifactId>MoltresBackend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 		<!-- JAVA EE API -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -37,6 +49,17 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -61,6 +84,8 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<!-- problems -->
+
 		</plugins>
 		<finalName>Moltres</finalName>
 	</build>

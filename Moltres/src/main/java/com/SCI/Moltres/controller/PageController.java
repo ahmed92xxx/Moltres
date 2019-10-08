@@ -1,24 +1,37 @@
 package com.SCI.Moltres.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.SCI.Moltres.exception.ProductNotFoundException;
 import com.SCI.MoltresBackend.dao.CategoryDAO;
+import com.SCI.MoltresBackend.dao.ProductDAO;
 import com.SCI.MoltresBackend.dto.Category;
-
+import com.SCI.MoltresBackend.dto.Product;
 @Controller
 public class PageController {
-
+		
+	private static final Logger logger= LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 
+	@Autowired
+	private ProductDAO productDAO;
+	
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "home");
+
+		
+		logger.info("inside PageController index method - INFO");
+		logger.debug("inside PageController index method - DEBUG");
 
 		// passing list category
 		mv.addObject("categories", categoryDAO.list());
@@ -80,4 +93,31 @@ public class PageController {
 
 		return mv;
 	}
+	
+	/*
+	 * 
+	 * Single product view
+	 * ****/
+	@RequestMapping(value ="/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
+		ModelAndView mv = new ModelAndView("page");
+		Product product = productDAO.get(id);
+		
+		if(product == null) throw new ProductNotFoundException();
+		
+		product.setViews(product.getViews() +1);
+		
+		//update view count
+		productDAO.update(product);
+		
+		mv.addObject("title",product.getName());
+		mv.addObject("product",product);
+		mv.addObject("userClickShowProduct",true);
+		
+		
+		return mv;
+		
+	}
+	
+	 
 }
