@@ -15,6 +15,7 @@
 			<ul class="nav navbar-nav">
 				<li id="about"><a href="${contextRoot}/about">About</a></li>
 				<li id="products"><a href="${contextRoot}/show/all/products">Products</a></li>
+				<li id="manageproducts"><a href="${contextRoot}/manage/products">Manage Products</a></li>
 				<li id="contact"><a href="${contextRoot}/contact">Contact</a></li>
 			</ul>
 		</div>
