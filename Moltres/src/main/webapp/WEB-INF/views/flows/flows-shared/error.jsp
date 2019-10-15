@@ -22,13 +22,13 @@
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Readable Theme -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+<link href="${css}/bootstrap-theme.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
 
-<title>Online Shopping - FlowException</title>
+<title>Moltres - FlowException</title>
 
 </head>
 

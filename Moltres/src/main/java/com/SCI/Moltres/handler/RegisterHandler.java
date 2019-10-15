@@ -32,7 +32,7 @@ public class RegisterHandler {
 	}
 	
 	public String validateUser(User user, MessageContext error) {
-		String transitionValue = "succes";
+		String transitionValue = "success";
 		//check password
 		
 		if(!(user.getPassword().equals(user.getConfirmPassword()))) {
@@ -54,7 +54,7 @@ public class RegisterHandler {
 	}
 	
 	public String saveAll(RegisterModel model) {
-		String transitionValue = "succes";
+		String transitionValue = "success";
 		
 		User user = model.getUser();
 		if(user.getRole().equals("USER")) {
