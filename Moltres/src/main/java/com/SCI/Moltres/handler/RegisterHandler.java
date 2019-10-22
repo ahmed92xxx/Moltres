@@ -24,7 +24,7 @@ public class RegisterHandler {
 	
 	
 	public void addUser(RegisterModel registerModel, User user) {
-		registerModel.getUser();
+		registerModel.setUser(user);
 	}
 	
 	public void addBilling(RegisterModel registerModel, Address billing) {

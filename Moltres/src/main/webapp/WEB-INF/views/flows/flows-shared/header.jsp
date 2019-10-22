@@ -22,7 +22,7 @@
 <title>Moltres - Membership</title>
 
 <script>
-
+	window.menu = '${title}';
 	window.contextRoot = '${contextRoot}'
 	
 </script>

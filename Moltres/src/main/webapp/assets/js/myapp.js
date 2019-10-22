@@ -1,6 +1,5 @@
 $(function() {
 
-	// solving active menu problems
 	switch (menu) {
 
 	case 'About Us':
