@@ -1,3 +1,4 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <div class="container">
 	<!-- Breadcrumb -->
 	<div class="row">
@@ -42,7 +43,7 @@
 					<h6>Quantity available : ${product.quantity}</h6>
 				</c:otherwise>
 			</c:choose>
-
+		<security:authorize access="hasAuthority('USER')">
 			<c:choose>
 				<c:when test="${product.quantity < 1}">
 					<a href="javascript:void(0)"	class="btn btn-success disabled"><strike>
@@ -55,7 +56,13 @@
 					<a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
 				</c:otherwise>
 			</c:choose>
-
+		</security:authorize>
+					<a href="${contextRoot}/manage/${product.id}/product"	class="btn btn-warning">
+					<span class="glyphicon glyphicon-pencil"></span>Edit</a>
+			
+		<security:authorize access="hasAuthority('USER')">
+			
+		</security:authorize>
 		<!--  	<a href="${contextRoot}/cart/add/${product.id}/product"	class="btn btn-success">
 			<span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a> 
 			<a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>

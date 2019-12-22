@@ -91,7 +91,12 @@ $(function() {
 							str+='<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a> ';
 						}
 						else{
+							if(userRole == 'ADMIN'){
+								str+='<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a> ';
+							}else{
 							str+='<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a> ';
+						
+							}
 						}
 						return str;
 					}
@@ -133,6 +138,18 @@ $(function() {
 			}
 		})
 	});
+	
+	
+	//csrf token
+	
+	var token = $('meta[name="_csrf]').attr('content');
+	var header = $('meta[name="_csrf_header]').attr('content');
+	if(token.length > 0 && header.length > 0)
+		{
+			$(document).ajaxSend(function(e , xhr , option){
+				xhr.setRequestHeader(header,token);
+			});
+		}
 	
 	//data table admin********************
 	
@@ -286,6 +303,35 @@ var $adminProductTable = $('#productsTable');
 			}
 		})
 	}
-	
-	
+	//***************************************************
+
+	//validation login
+	var $loginForm=$('#loginForm')
+	if($loginForm.length){
+		$loginForm.validate({
+			rules :{
+				username :{
+					required: true,
+					email: true
+				},
+				password: {
+					required: true
+				}
+			},
+			message:{
+				username:{
+					required:'Please enter username !',
+					email:'enter valid email'
+				},
+				password:{
+					required:'Please enter password !',
+				}
+			},
+			errorElement: 'em',
+			errorPlacement: function(error,element){
+				error.addClass('help-block');
+				error.insertAfter(element);
+			}
+		})
+	}
 });

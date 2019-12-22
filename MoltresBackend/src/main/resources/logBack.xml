@@ -7,11 +7,11 @@
 		</encoder>
 	</appender>
 
-	<logger name="com.SCI" level="DEBUG" additivity ="fasle">
-		<appender-ref ref="consoleAppender"></appender-ref>
+	<logger name="com.SCI" level="DEBUG" additivity ="false">
+		<appender-ref ref="consoleAppender"/>
 	</logger>
 
-	<root level="INFO">
-		<appender-ref ref="consoleAppender"></appender-ref>
+	<root level="INFO" >
+		<appender-ref ref="consoleAppender"/>
 	</root>
 </configuration>
