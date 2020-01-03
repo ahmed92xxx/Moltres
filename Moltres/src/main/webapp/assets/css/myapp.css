@@ -191,3 +191,7 @@ input:checked+.slider:before {
 		z-index:9999;
 		background:url(../images/pre-loader.gif) 50% no-repeat #fff
 }
+
+.table-responsive {
+	overflow-x:inherit; 
+}

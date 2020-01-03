@@ -66,7 +66,7 @@ private final static Logger logger = LoggerFactory.getLogger(CartController.clas
 
 	@RequestMapping("/{cartLineId}/update")
 	public String udpateCartLine(@PathVariable int cartLineId, @RequestParam int count) {
-		String response = cartService.manageCartLine(cartLineId, count);		
+		String response = cartService.manageCartLine(cartLineId, count);//updateCartLine		
 		return "redirect:/cart/show?"+response;		
 	}
 	

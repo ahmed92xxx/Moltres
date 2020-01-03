@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.SCI.Moltres.model.UserModel;
+
 import com.SCI.MoltresBackend.dao.CartLineDAO;
 import com.SCI.MoltresBackend.dao.ProductDAO;
 import com.SCI.MoltresBackend.dto.Cart;
@@ -22,6 +24,12 @@ public class CartService {
 		
 	@Autowired
 	private HttpSession session;
+	
+	private Cart getCart() { 
+		return ((UserModel) (session.getAttribute("userModel"))).getCart(); 		
+		} 
+	
+	 
 	
 	public List<CartLine> getCartLines() {
 
@@ -75,7 +83,7 @@ public class CartService {
 			cartLine.setProductCount(1);
 			cartLine.setBuyingPrice(product.getUnitPrice());
 			cartLine.setTotal(product.getUnitPrice());
-			
+			cartLine.setAvailable(true);
 			// insert a new cartLine
 			cartLineDAO.add(cartLine);
 			

@@ -178,39 +178,43 @@
 
 
 		<div class='col-xs-12'>
+			<div class="container-fluid">
+				<div class="tabe-responsive">
+					<table id="productsTable"
+						class="table table-condensed table-bordered">
+
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Qty. Avail</th>
+								<th>Unit Price</th>
+								<th>Activate</th>
+								<th>Edit</th>
+							</tr>
+						</thead>
+
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Qty. Avail</th>
+								<th>Unit Price</th>
+								<th>Activate</th>
+								<th>Edit</th>
+							</tr>
+						</tfoot>
 
 
-			<table id="productsTable"
-				class="table table-condensed table-bordered">
+					</table>
 
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Qty. Avail</th>
-						<th>Unit Price</th>
-						<th>Activate</th>
-						<th>Edit</th>
-					</tr>
-				</thead>
+				</div>
+			</div>
 
-				<tfoot>
-					<tr>
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Qty. Avail</th>
-						<th>Unit Price</th>
-						<th>Activate</th>
-						<th>Edit</th>
-					</tr>
-				</tfoot>
-
-
-			</table>
 
 
 		</div>

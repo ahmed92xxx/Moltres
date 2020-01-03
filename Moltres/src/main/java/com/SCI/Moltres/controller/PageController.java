@@ -1,8 +1,14 @@
 package com.SCI.Moltres.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -133,11 +139,18 @@ public class PageController {
 		return mv;
 	}
 	
+	//login
+	
 	@RequestMapping(value = { "/login" })
-	public ModelAndView login(@RequestParam(name="error",required=false)String error) {
+	public ModelAndView login(@RequestParam(name="error",required=false)String error ,
+			@RequestParam(name="logout",required=false)String logout) {
 		ModelAndView mv = new ModelAndView("login");
 		if(error != null ) {
 			mv.addObject("message","invalid username and password");
+		}
+		
+		if(logout != null ) {
+			mv.addObject("logout","user has successfuly logout");
 		}
 		mv.addObject("title", "Login");
 
@@ -151,6 +164,18 @@ public class PageController {
 		mv.addObject("errorTitle", "Caught You !!");
 		mv.addObject("errorDescription", "You are not authorized to access to this area ! ");
 		return mv;
+	}
+	
+	//logout
+	@RequestMapping(value ="/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if(auth != null)
+		{
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		
+		return "redirect:/login?logout";
 	}
 
 }
