@@ -110,7 +110,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<!-- problems -->
 
 		</plugins>
 		<finalName>Moltres</finalName>
